@@ -1,56 +1,160 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ipék joaillerie - Bientôt disponible</title>
+  <title>Maison Sertaç Ipek Joaillerie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      background: #f0f0f0; /* gri arka plan */
-      color: #333;
-      text-align: center;
+    :root {
+      --bg-gradient: linear-gradient(180deg, #fdfcf9 0%, #f7f5ef 100%);
+      --accent-color: #bfa14a; /* refined gold tone */
+      --text-color: #2c2c2c;
+      --muted-color: #6c6c6c;
     }
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-      letter-spacing: 2px;
-      color: #bfa14a; /* altın vurgusu */
-    }
-    p {
-      font-size: 1.4rem;
-      margin-bottom: 2rem;
-      color: #555;
-    }
-    .accent {
-      color: #aaa; /* gümüş tonu */
-    }
-    .logo {
-      max-width: 200px;
-      margin-bottom: 2rem;
-    }
-    .footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9rem;
-      color: #999;
-    }
+
+```
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  color: var(--text-color);
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.page {
+  max-width: 900px;
+  text-align: center;
+  animation: fadeIn 2s ease;
+  padding: 3rem 1.5rem;
+}
+
+.logo {
+  width: 140px;
+  height: auto;
+  margin-bottom: 2rem;
+  animation: fadeIn 1.8s ease;
+}
+
+header .monogram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent-color);
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  color: var(--accent-color);
+  background: rgba(191, 161, 74, 0.07);
+  margin-bottom: 2rem;
+  transition: all 0.6s ease;
+}
+
+header .monogram:hover {
+  transform: scale(1.06);
+  background: rgba(191, 161, 74, 0.12);
+  box-shadow: 0 0 20px rgba(191, 161, 74, 0.2);
+}
+
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  color: var(--accent-color);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  animation: slideUp 1.5s ease;
+}
+
+.hero p {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: var(--muted-color);
+  font-family: "Playfair Display", serif;
+  margin-bottom: 2.5rem;
+  animation: fadeIn 2.4s ease;
+}
+
+.cta {
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  border-radius: 50px;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.95rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.cta:hover {
+  background: var(--accent-color);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(191, 161, 74, 0.3);
+}
+
+footer {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: var(--muted-color);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 1.2rem;
+  font-family: "Inter", sans-serif;
+  opacity: 0.85;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (min-width: 768px) {
+  .page { padding: 5rem 2rem; }
+  .hero h1 { font-size: 4.5rem; }
+}
+```
+
   </style>
 </head>
 <body>
-  <!-- Logonuzu buraya ekleyebilirsiniz -->
-  <img src="logo.png" alt="ipék joaillerie" class="logo">
-
-  <h1>ipék joaillerie</h1>
-  <p><span class="accent">Bientôt disponible...</span></p>
-
-  <div class="footer">© 2025 ipék joaillerie</div>
+  <div class="page">
+    <header>
+      <img src="logo.png" alt="Logo Maison Sertaç Ipek Joaillerie" class="logo">
+      <div class="monogram">S. IPEK</div>
+    </header>
+    <main class="hero">
+      <h1>Maison Sertaç Ipek Joaillerie</h1>
+      <p>De l’héritage du Grand Bazar à la lumière de Nice.</p>
+      <a href="mailto:info@ipekjoaillerie.com" class="cta">Soyez informé du lancement</a>
+    </main>
+    <footer>
+      © 2025 Maison Sertaç Ipek Joaillerie — Héritage de Lumière
+    </footer>
+  </div>
 </body>
 </html>
 
