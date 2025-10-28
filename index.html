@@ -1,203 +1,143 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/index.html b/index.html
-index 8609269a1a7e49bbc9fabefc9826ca1f3b016a91..4eae59c8e41c398945f7681a752a6f90598e3dc2 100644
---- a/index.html
-+++ b/index.html
-@@ -44,101 +44,173 @@
-       height: auto;
-       margin-bottom: 2rem;
-       animation: fadeIn 1.8s ease;
-       display: inline-block;
-     }
- 
-     .hero h1 {
-       font-family: "Playfair Display", serif;
-       font-weight: 600;
-       font-size: clamp(2.6rem, 6vw, 4.2rem);
-       color: var(--accent-color);
-       letter-spacing: 2px;
-       text-transform: uppercase;
-       margin-bottom: 1.2rem;
-       animation: slideUp 1.5s ease;
-     }
- 
-     .hero p {
-       font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-       color: var(--muted-color);
-       font-family: "Playfair Display", serif;
-       margin-bottom: 2.5rem;
-       animation: fadeIn 2.4s ease;
-     }
- 
--    .cta {
--      display: inline-block;
--      padding: 0.9rem 2.2rem;
--      border-radius: 50px;
--      border: 1px solid var(--accent-color);
--      color: var(--accent-color);
-+    .cta {
-+      display: inline-block;
-+      padding: 0.9rem 2.2rem;
-+      border-radius: 50px;
-+      border: 1px solid var(--accent-color);
-+      color: var(--accent-color);
-       text-decoration: none;
-       font-weight: 400;
-       font-size: 0.95rem;
-       letter-spacing: 1.2px;
-       text-transform: uppercase;
-       background: transparent;
-       transition: all 0.3s ease;
--    }
--
--    .cta:hover {
--      background: var(--accent-color);
--      color: #fff;
--      box-shadow: 0 4px 20px rgba(191, 161, 74, 0.3);
--    }
-+    }
-+
-+    .cta:hover {
-+      background: var(--accent-color);
-+      color: #fff;
-+      box-shadow: 0 4px 20px rgba(191, 161, 74, 0.3);
-+    }
-+
-+    .mailto-fallback {
-+      margin-top: 1.5rem;
-+      font-size: 0.95rem;
-+      color: var(--muted-color);
-+      max-width: 32rem;
-+      margin-left: auto;
-+      margin-right: auto;
-+      line-height: 1.5;
-+      display: none;
-+    }
-+
-+    .mailto-fallback button {
-+      background: none;
-+      border: none;
-+      color: var(--accent-color);
-+      font-weight: 600;
-+      cursor: pointer;
-+      text-decoration: underline;
-+      padding: 0;
-+      font-family: inherit;
-+    }
- 
-     footer {
-       margin-top: 3rem;
-       font-size: 0.9rem;
-       color: var(--muted-color);
-       border-top: 1px solid rgba(0, 0, 0, 0.08);
-       padding-top: 1.2rem;
-       font-family: "Inter", sans-serif;
-       opacity: 0.85;
-     }
- 
-     @keyframes fadeIn {
-       from { opacity: 0; }
-       to { opacity: 1; }
-     }
- 
-     @keyframes slideUp {
-       from { transform: translateY(30px); opacity: 0; }
-       to { transform: translateY(0); opacity: 1; }
-     }
- 
-     @media (min-width: 768px) {
-       .page { padding: 5rem 2rem; }
-       .hero h1 { font-size: 4.5rem; }
-     }
-   </style>
- </head>
- <body>
-   <div class="page">
-     <header>
-       <!-- Embedded SVG logo -->
-       <svg class="logo" width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-         <defs>
-           <linearGradient id="goldGradient" x1="0" y1="0" x2="1" y2="1">
-             <stop offset="0%" stop-color="#d8c278" />
-             <stop offset="100%" stop-color="#bfa14a" />
-           </linearGradient>
-         </defs>
-         <circle cx="100" cy="100" r="85" fill="none" stroke="url(#goldGradient)" stroke-width="2.5" />
-         <text x="50%" y="54%" text-anchor="middle" font-family="'Playfair Display', serif" font-size="36" font-weight="600" fill="url(#goldGradient)">
-           S. IPEK
-         </text>
-       </svg>
-     </header>
-     <main class="hero">
-       <h1>Maison Sertaç Ipek Joaillerie</h1>
-       <p>De l’héritage du Grand Bazar à la lumière de Nice.</p>
--      <a href="mailto:contact@ipekjoaillerie.com" class="cta">Soyez informé du lancement</a>
--    </main>
--    <footer>
--      © 2025 Maison Sertaç Ipek Joaillerie — Héritage de Lumière
--    </footer>
--  </div>
--</body>
--</html>
-+      <a href="mailto:contact@ipekjoaillerie.com" class="cta" data-email="contact@ipekjoaillerie.com">Soyez informé du lancement</a>
-+      <p class="mailto-fallback" id="mailtoFallback" role="status" aria-live="polite">
-+        Si votre messagerie ne s'ouvre pas automatiquement, écrivez-nous directement à
-+        <button type="button" id="copyEmail">contact@ipekjoaillerie.com</button>.
-+      </p>
-+    </main>
-+    <footer>
-+      © 2025 Maison Sertaç Ipek Joaillerie — Héritage de Lumière
-+    </footer>
-+  </div>
-+  <script>
-+    (function () {
-+      const cta = document.querySelector('.cta[data-email]');
-+      const fallback = document.getElementById('mailtoFallback');
-+      const copyButton = document.getElementById('copyEmail');
-+      if (!cta || !fallback || !copyButton) return;
-+
-+      const email = cta.dataset.email;
-+
-+      cta.addEventListener('click', function (event) {
-+        const target = `mailto:${email}`;
-+        // Allow the browser to handle the default mailto navigation
-+        event.preventDefault();
-+        window.location.href = target;
-+
-+        // If nothing happens after a brief delay, reveal the fallback message
-+        window.setTimeout(function () {
-+          if (document.hasFocus()) {
-+            fallback.style.display = 'block';
-+          }
-+        }, 600);
-+      });
-+
-+      copyButton.addEventListener('click', function () {
-+        if (navigator.clipboard && navigator.clipboard.writeText) {
-+          navigator.clipboard.writeText(email).then(function () {
-+            copyButton.textContent = 'Adresse copiée !';
-+            window.setTimeout(function () {
-+              copyButton.textContent = email;
-+            }, 3000);
-+          });
-+        } else {
-+          const tempInput = document.createElement('input');
-+          tempInput.value = email;
-+          document.body.appendChild(tempInput);
-+          tempInput.select();
-+          document.execCommand('copy');
-+          document.body.removeChild(tempInput);
-+          copyButton.textContent = 'Adresse copiée !';
-+          window.setTimeout(function () {
-+            copyButton.textContent = email;
-+          }, 3000);
-+        }
-+      });
-+    })();
-+  </script>
-+</body>
-+</html>
- 
- 
-EOF
-)
+@DOCTYPE html
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison Sertaç Ipek Joaillerie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(180deg, #fdfcf9 0%, #f7f5ef 100%);
+      --accent-color: #bfa14a;
+      --text-color: #2c2c2c;
+      --muted-color: #6c6c6c;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg-gradient);
+      color: var(--text-color);
+      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    .page {
+      max-width: 900px;
+      text-align: center;
+      animation: fadeIn 2s ease;
+      padding: 3rem 1.5rem;
+    }
+
+    .logo {
+      width: 200px;
+      height: auto;
+      margin-bottom: 2rem;
+      animation: fadeIn 1.8s ease;
+      display: inline-block;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      color: var(--accent-color);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      animation: slideUp 1.5s ease;
+    }
+
+    .hero p {
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+      color: var(--muted-color);
+      font-family: "Playfair Display", serif;
+      margin-bottom: 2.5rem;
+      animation: fadeIn 2.4s ease;
+    }
+
+    .cta {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      border: 1px solid var(--accent-color);
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 0.95rem;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      background: transparent;
+      transition: all 0.3s ease;
+    }
+
+    .cta:hover {
+      background: var(--accent-color);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(191, 161, 74, 0.3);
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: var(--muted-color);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      padding-top: 1.2rem;
+      font-family: "Inter", sans-serif;
+      opacity: 0.85;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (min-width: 768px) {
+      .page { padding: 5rem 2rem; }
+      .hero h1 { font-size: 4.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      @-- Embedded SVG logo --
+      <svg class="logo" width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="goldGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#d8c278" />
+            <stop offset="100%" stop-color="#bfa14a" />
+          </linearGradient>
+        </defs>
+        <circle cx="100" cy="100" r="85" fill="none" stroke="url(#goldGradient)" stroke-width="2.5" />
+        <text x="50%" y="54%" text-anchor="middle" font-family="'Playfair Display', serif" font-size="36" font-weight="600" fill="url(#goldGradient)">
+          S. IPEK
+        </text>
+      </svg>
+    </header>
+    <main class="hero">
+      <h1>Maison Sertaç Ipek Joaillerie</h1>
+      <p>De l’héritage du Grand Bazar à la lumière de Nice.</p>
+      <a href="mailto:contact@ipekjoaillerie.com" class="cta">Soyez informé du lancement</a>
+    </main>
+    <footer>
+      © 2025 Maison Sertaç Ipek Joaillerie — Héritage de Lumière
+    </footer>
+  </div>
+</body>
+</html>
