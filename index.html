@@ -1,136 +1,102 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Maison Sertaç Ipek Joaillerie. De l’héritage du Grand Bazar à la lumière de Nice. Créations de haute joaillerie.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
-  <title>Maison Sertaç Ipek Joaillerie</title>
-  <link rel="canonical" href="https://maisonipek.com/">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-gradient: linear-gradient(180deg, #fdfcf9 0%, #f7f5ef 100%);
-      --accent-color: #bfa14a;
-      --text-color: #2c2c2c;
-      --muted-color: #6c6c6c;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      min-height: 100vh;
-      background: var(--bg-gradient);
-      color: var(--text-color);
-      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow-x: hidden;
-    }
-
-    .page {
-      max-width: 900px;
-      text-align: center;
-      animation: fadeIn 2s ease;
-      padding: 3rem 1.5rem;
-    }
-
-    .logo {
-      width: 200px;
-      height: auto;
-      margin-bottom: 2rem;
-      animation: fadeIn 1.8s ease;
-      display: inline-block;
-    }
-
-    .hero h1 {
-      font-family: "Playfair Display", serif;
-      font-weight: 600;
-      font-size: clamp(2.6rem, 6vw, 4.2rem);
-      color: var(--accent-color);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 1.2rem;
-      animation: slideUp 1.5s ease;
-    }
-
-    .hero p {
-      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-      color: var(--muted-color);
-      font-family: "Playfair Display", serif;
-      margin-bottom: 2.5rem;
-      animation: fadeIn 2.4s ease;
-    }
-
-    .cta {
-      display: inline-block;
-      padding: 0.9rem 2.2rem;
-      border-radius: 50px;
-      border: 1px solid var(--accent-color);
-      color: var(--accent-color);
-      text-decoration: none;
-      font-weight: 400;
-      font-size: 0.95rem;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      background: transparent;
-      transition: all 0.3s ease;
-    }
-
-    .cta:hover {
-      background: var(--accent-color);
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(191, 161, 74, 0.3);
-    }
-
-    footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: var(--muted-color);
-      border-top: 1px solid rgba(0, 0, 0, 0.08);
-      padding-top: 1.2rem;
-      font-family: "Inter", sans-serif;
-      opacity: 0.85;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes slideUp {
-      from { transform: translateY(30px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    @media (min-width: 768px) {
-      .page { padding: 5rem 2rem; }
-      .hero h1 { font-size: 4.5rem; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maison Ipek — Joaillerie · Nice, Côte d'Azur</title>
+<meta name="description" content="Maison Ipek, joaillerie née de l'héritage du Grand Bazar d'Istanbul et de la lumière de Nice. Inscrivez-vous pour un accès anticipé à la première collection.">
+<link rel="canonical" href="https://maisonipek.com/">
+<meta name="theme-color" content="#0F1B2D">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Maison Ipek">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Maison Ipek — Joaillerie · Nice, Côte d'Azur">
+<meta property="og:description" content="Maison Ipek, joaillerie née de l'héritage du Grand Bazar d'Istanbul et de la lumière de Nice. Inscrivez-vous pour un accès anticipé à la première collection.">
+<meta property="og:url" content="https://maisonipek.com/">
+<meta property="og:image" content="https://maisonipek.com/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <div class="page">
-    <header>
-      <img src="serta.png" alt="Maison Sertaç Ipek Logo" class="logo">
-    </header>
-    <main class="hero">
-      <h1>Maison Sertaç Ipek Joaillerie</h1>
-      <p>De l’héritage du Grand Bazar à la lumière de Nice.</p>
-      <a href="mailto:contact@maisonipek.com" class="cta">Soyez informé du lancement</a>
-    </main>
-    <footer>
-      © 2026 Maison Sertaç Ipek Joaillerie — Héritage de Lumière
-    </footer>
-  </div>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="topbar">
+<span>Nice · Côte d'Azur</span>
+<a href="/#acces">Accès anticipé</a>
+</header>
+<main id="contenu">
+<section class="hero">
+<h1><img src="/img/logo-lockup-navy.webp" width="1000" height="927" alt="Maison Ipek Joaillerie — Nice, Côte d'Azur"></h1>
+<p class="slogan">De l'héritage du Grand Bazar à la lumière de Nice.</p>
+</section>
+<section class="story" aria-labelledby="maison">
+<img src="/img/atelier.webp" width="1600" height="1195" loading="lazy" alt="Esquisses de bijoux au crayon sur papier, compas et loupe en laiton">
+<div class="story-text">
+<h2 id="maison">La Maison</h2>
+<p>Depuis 2010, Sertaç Ipek dessine et façonne des bijoux au cœur de l'atelier familial du Grand Bazar d'Istanbul.</p>
+<p>Gemmologue diplômé du GIA, il pose aujourd'hui ses valises à Nice, où naît Maison Ipek : des créations qui unissent un savoir-faire transmis de génération en génération et la lumière de la Côte d'Azur.</p>
+<p class="em">La première collection se prépare à l'atelier.</p>
+<div class="rule" aria-hidden="true"><span></span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 0 L13.8 10.2 L24 12 L13.8 13.8 L12 24 L10.2 13.8 L0 12 L10.2 10.2 Z" fill="currentColor"/></svg><span></span></div>
+</div>
+</section>
+<section class="acces" id="acces" aria-labelledby="acces-titre">
+<img class="rose" src="/img/rose-or.webp" width="72" height="72" alt="" aria-hidden="true">
+<h2 id="acces-titre">Accès anticipé à la première collection</h2>
+<p class="lead">Inscrivez-vous pour être parmi les premiers informés.</p>
+<div class="sib-form">
+<div id="sib-form-container" class="sib-form-container">
+<div id="error-message" class="sib-form-message-panel" role="alert"><div class="sib-form-message-panel__text"><span class="sib-form-message-panel__inner-text">Votre inscription n'a pas pu être enregistrée. Veuillez réessayer.</span></div></div>
+<div id="success-message" class="sib-form-message-panel" role="status"><div class="sib-form-message-panel__text"><span class="sib-form-message-panel__inner-text">Merci ! Vous êtes bien inscrit(e). Nous vous écrirons au lancement.</span></div></div>
+<div id="sib-container" class="sib-container--large sib-container--vertical">
+<form id="sib-form" method="POST" action="https://c7601040.sibforms.com/serve/MUIFAPpNdclaPgcxGuCtY11X-899FvId1WXJkj1QOzZdkql-7nhSXWej79-bJgYFPWWMAsWRYFxihhib8f5fDlbwfJ00Tk7VgCUVbV_3wxepTS3ZPz8SV21JemrmHdh9KeWzncJQb6LPkNz3HxMvFV3Rx7UMPfOdnpnpd-o6YVPuhgwBandVZ059rXgIItDIfTgEESTgKkiOLGqnYw==" data-type="subscription">
+<div class="sib-input sib-form-block"><div class="form__entry entry_block"><div class="form__label-row">
+<label class="entry__label f-label" for="EMAIL" data-required="*">Votre adresse e-mail</label>
+<div class="entry__field f-row">
+<input class="input" type="email" id="EMAIL" name="EMAIL" autocomplete="email" value="" placeholder="exemple@email.com" data-required="true" required>
+<button class="sib-form-block__button sib-form-block__button-with-loader f-btn" form="sib-form" type="submit"><svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" aria-hidden="true"><path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"/></svg>Je m'inscris</button>
+</div></div>
+<label class="entry__error entry__error--primary"></label>
+</div></div>
+<div class="sib-optin sib-form-block" data-required="true"><div class="form__entry entry_mcq"><div class="form__label-row">
+<div class="entry__choice"><label class="f-consent" for="OPT_IN"><input type="checkbox" value="1" id="OPT_IN" name="OPT_IN" required><span>J'accepte de recevoir les actualités de Maison Ipek. Désinscription possible à tout moment.</span></label></div>
+</div>
+<label class="entry__error entry__error--primary"></label>
+</div></div>
+<p class="f-note">Vos données servent uniquement à vous informer de nos actualités. Voir notre <a href="/confidentialite.html">politique de confidentialité</a>.</p>
+<input type="text" name="email_address_check" value="" class="input--hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+<input type="hidden" name="locale" value="fr">
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<p class="brand">Maison Ipek</p>
+<nav aria-label="Informations légales">
+<a href="/mentions-legales.html">Mentions légales</a>
+<a href="/confidentialite.html">Politique de confidentialité</a>
+<a href="mailto:contact@maisonipek.com">contact@maisonipek.com</a>
+</nav>
+<p class="legal">© 2026 Maison Sertaç İpek Joaillerie — SASU au capital de 40 000 € — RCS Nice 100 574 391</p>
+</footer>
+<script>
+window.REQUIRED_CODE_ERROR_MESSAGE = "Veuillez choisir un indicatif pays.";
+window.LOCALE = "fr";
+window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Les informations saisies sont invalides. Veuillez vérifier le format et réessayer.";
+window.REQUIRED_ERROR_MESSAGE = "Ce champ est obligatoire.";
+window.GENERIC_INVALID_MESSAGE = "Les informations saisies sont invalides. Veuillez vérifier le format et réessayer.";
+window.INVALID_NUMBER = "Les informations saisies sont invalides. Veuillez vérifier le format et réessayer.";
+window.INVALID_DATE = "Veuillez saisir une date valide.";
+window.REQUIRED_MULTISELECT_MESSAGE = "Veuillez sélectionner au moins une option.";
+window.translation = { common: { selectedList: "{quantity} liste sélectionnée", selectedLists: "{quantity} listes sélectionnées", selectedOption: "{quantity} sélectionné", selectedOptions: "{quantity} sélectionnés" } };
+var AUTOHIDE = Boolean(0);
+</script>
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 </body>
 </html>
-
-
